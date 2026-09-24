@@ -1,4 +1,4 @@
-```javascript
+
 const API_URL = 'https://fedskillstest.coalitiontechnologies.workers.dev';
 const AUTH = 'Basic ' + btoa('coalition:skills-test');
 
