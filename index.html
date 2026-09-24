@@ -3,138 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TechCare - Healthcare Dashboard</title>
+
     <link rel="stylesheet" href="style.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
     <header class="main-header">
+
         <div class="nav-container">
-            <img src="assets/TestLogo.svg" alt="TechCare" class="logo">
+
+            <img src="TestLogo.svg" alt="TechCare" class="logo">
+
             <nav class="nav-links">
-                <a href="#"><img src="assets/overview_icon.svg"> Overview</a>
-                <a href="#" class="active"><img src="assets/group_icon.svg"> Patients</a>
-                <a href="#"><img src="assets/calendar_icon.svg"> Schedule</a>
-                <a href="#"><img src="assets/chat_icon.svg"> Message</a>
-                <a href="#"><img src="assets/credit_card_icon.svg"> Transactions</a>
+
+                <a href="#">
+                    <img src="overview_icon.svg">
+                    Overview
+                </a>
+
+                <a href="#" class="active">
+                    <img src="group_icon.svg">
+                    Patients
+                </a>
+
+                <a href="#">
+                    <img src="calendar_icon.svg">
+                    Schedule
+                </a>
+
+                <a href="#">
+                    <img src="chat_icon.svg">
+                    Message
+                </a>
+
+                <a href="#">
+                    <img src="credit_card_icon.svg">
+                    Transactions
+                </a>
+
             </nav>
+
             <div class="doctor-profile">
-                <img src="assets/senior-woman-doctor.png" class="dr-thumb">
+
+                <img src="senior-woman-doctor.png" class="dr-thumb">
+
                 <div class="dr-text">
-                    <strong>Dr. Jose Simmons</strong><br>
+                    <strong>Dr. Jose Simmons</strong>
+                    <br>
                     <span>General Practitioner</span>
                 </div>
+
                 <div class="divider"></div>
-                <img src="assets/settings_icon.svg" class="nav-icon">
-                <img src="assets/more_vert_icon.svg" class="nav-icon">
+
+                <img src="settings_icon.svg" class="nav-icon">
+
+                <img src="more_vert_icon.svg" class="nav-icon">
+
             </div>
+
         </div>
+
     </header>
 
+
     <div class="dashboard-grid">
+
         <aside class="panel patient-sidebar">
+
             <div class="sidebar-header">
+
                 <h2>Patients</h2>
-                <img src="assets/search.svg" alt="search" class="icon-search">
+
+                <img src="search.svg" alt="search" class="icon-search">
+
             </div>
+
             <div id="patient-list" class="scrollable-area"></div>
+
         </aside>
 
+
         <main class="main-content">
+
             <section class="panel diagnosis-section">
+
                 <h2>Diagnosis History</h2>
+
                 <div class="chart-box">
+
                     <div class="chart-inner">
                         <canvas id="bpChart"></canvas>
                     </div>
+
                     <div class="chart-legend">
+
                         <div class="legend-item">
+
                             <div class="legend-header">
-                                <span class="dot systolic"></span><strong>Systolic</strong>
+
+                                <span class="dot systolic"></span>
+
+                                <strong>Systolic</strong>
+
                             </div>
+
                             <h2 id="sys-val">--</h2>
-                            <p class="status-indicator">▲ Higher than Average</p>
+
+                            <p class="status-indicator">
+                                ▲ Higher than Average
+                            </p>
+
                         </div>
+
+
                         <hr class="legend-divider">
+
+
                         <div class="legend-item">
+
                             <div class="legend-header">
-                                <span class="dot diastolic"></span><strong>Diastolic</strong>
+
+                                <span class="dot diastolic"></span>
+
+                                <strong>Diastolic</strong>
+
                             </div>
+
                             <h2 id="dia-val">--</h2>
-                            <p class="status-indicator">▼ Lower than Average</p>
+
+                            <p class="status-indicator">
+                                ▼ Lower than Average
+                            </p>
+
                         </div>
+
                     </div>
+
                 </div>
+
 
                 <div class="metrics-grid">
+
                     <div class="metric-card resp">
-                        <img src="assets/respiratory_rate.svg">
+
+                        <img src="respiratory_rate.svg">
+
                         <p>Respiratory Rate</p>
+
                         <h1 id="resp-val">--</h1>
+
                         <span id="resp-stat">Normal</span>
+
                     </div>
+
+
                     <div class="metric-card temp">
-                        <img src="assets/temperature.svg">
+
+                        <img src="temperature.svg">
+
                         <p>Temperature</p>
+
                         <h1 id="temp-val">--</h1>
+
                         <span id="temp-stat">Normal</span>
+
                     </div>
+
+
                     <div class="metric-card heart">
-                        <img src="assets/HeartBPM.svg">
+
+                        <img src="HeartBPM.svg">
+
                         <p>Heart Rate</p>
+
                         <h1 id="heart-val">--</h1>
+
                         <span id="heart-stat">Normal</span>
+
                     </div>
+
                 </div>
+
             </section>
+
 
             <section class="panel diagnostic-list">
+
                 <h2>Diagnostic List</h2>
+
                 <div class="table-wrapper">
+
                     <table class="data-table">
+
                         <thead>
-                            <tr><th>Problem/Diagnosis</th><th>Description</th><th>Status</th></tr>
+
+                            <tr>
+                                <th>Problem/Diagnosis</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                            </tr>
+
                         </thead>
+
                         <tbody id="diag-body"></tbody>
+
                     </table>
+
                 </div>
+
             </section>
+
         </main>
 
+
         <aside class="profile-sidebar">
+
             <section class="panel profile-card">
+
                 <img id="profile-img" class="main-avatar" src="" alt="">
+
                 <h2 id="profile-name">--</h2>
+
+
                 <div class="info-list">
+
                     <div class="info-item">
-                        <img src="assets/birth_icon.svg">
-                        <div><p>Date Of Birth</p><strong id="dob">--</strong></div>
+
+                        <img src="birth_icon.svg">
+
+                        <div>
+                            <p>Date Of Birth</p>
+                            <strong id="dob">--</strong>
+                        </div>
+
                     </div>
+
+
                     <div class="info-item">
-                        <img src="assets/female_icon.svg">
-                        <div><p>Gender</p><strong id="gender">--</strong></div>
+
+                        <img src="female_icon.svg">
+
+                        <div>
+                            <p>Gender</p>
+                            <strong id="gender">--</strong>
+                        </div>
+
                     </div>
+
+
                     <div class="info-item">
-                        <img src="assets/phone_icon.svg">
-                        <div><p>Contact Info</p><strong id="phone">--</strong></div>
+
+                        <img src="phone_icon.svg">
+
+                        <div>
+                            <p>Contact Info</p>
+                            <strong id="phone">--</strong>
+                        </div>
+
                     </div>
+
+
                     <div class="info-item">
-                        <img src="assets/insurance_icon.svg">
-                        <div><p>Insurance Provider</p><strong id="insurance">--</strong></div>
+
+                        <img src="insurance_icon.svg">
+
+                        <div>
+                            <p>Insurance Provider</p>
+                            <strong id="insurance">--</strong>
+                        </div>
+
                     </div>
+
                 </div>
-                <button class="btn-primary">Show All Information</button>
+
+
+                <button class="btn-primary">
+                    Show All Information
+                </button>
+
             </section>
+
 
             <section class="panel lab-section">
+
                 <h2>Lab Results</h2>
+
                 <ul id="lab-list" class="lab-list"></ul>
+
             </section>
+
         </aside>
+
     </div>
 
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
